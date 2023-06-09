@@ -1,11 +1,8 @@
 package sample;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-public class Staff {
+public class Staff implements Iterable<Employee>{
     private static List<Employee> staffList;
 
     static{
@@ -29,11 +26,15 @@ public class Staff {
         Comparator<Employee> comp= new EmployeeNameComparator().thenComparing(new EmployeeAgeComparator());
         staffList.sort(comp);
     }
+    @Override
+    public Iterator<Employee> iterator() {
+        return staffList.iterator();
+    }
+
     public void printStaffList(){
         sortStaffList();
-        for (Employee emp : staffList){
+        for (Employee emp : this){
             System.out.println(emp.toString());
         }
     }
-
 }
