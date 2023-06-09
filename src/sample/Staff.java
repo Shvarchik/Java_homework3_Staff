@@ -3,7 +3,7 @@ package sample;
 import java.util.*;
 
 public class Staff implements Iterable<Employee>{
-    private static List<Employee> staffList;
+    private static final List<Employee> staffList;
 
     static{
         staffList = new ArrayList<>();
